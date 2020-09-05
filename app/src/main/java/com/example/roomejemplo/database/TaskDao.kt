@@ -1,12 +1,13 @@
-package com.example.roomejemplo
+package com.example.roomejemplo.database
 
 import androidx.room.*
+import com.example.roomejemplo.database.Task
 
 @Dao
 interface TaskDao {
 //estas funciones retornan datos
     @Insert (onConflict = OnConflictStrategy.REPLACE)  //Insertar 1 objeto en la tabla, REEMPLAZA SI O SI EN CASO DE CONFLICTO
-    fun insertOneTask(mtask:Task)  //recibe el objeto el desglose de los atributos los hace Room
+    fun insertOneTask(mtask: Task)  //recibe el objeto el desglose de los atributos los hace Room
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE) //en caso de conflicto REEMPLAZA
@@ -23,6 +24,6 @@ interface TaskDao {
     fun getAllTaskFromDb():List<Task>
 
     @Query("SELECT * FROM table_name WHERE id=:mid")//los : es para que sepa que es la variable
-    fun getOneTaskByID(mid:Int):Task //yo le paso un id y la cuery me trae el Task u objeto que encuentre
+    fun getOneTaskByID(mid:Int): Task //yo le paso un id y la cuery me trae el Task u objeto que encuentre
 
 }

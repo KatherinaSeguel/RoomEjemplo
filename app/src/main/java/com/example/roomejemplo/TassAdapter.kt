@@ -9,8 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.roomejemplo.database.Task
 import kotlinx.android.synthetic.main.task_item_list.view.*
 
-class TaskAdapter (val dataList : List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter () : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
+
+  private var dataList = emptyList<Task>()
+//función que actualiza el listado del adapter
+    fun updateDataList(mDataList: List<Task>){
+       dataList=mDataList
+        notifyDataSetChanged() //el grita que hay cambios para que se actualicen los datos
+      }
+
+//ViewHolder
     inner class  TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val taskText = itemView.taskTv
         val checkTask = itemView.checkBox

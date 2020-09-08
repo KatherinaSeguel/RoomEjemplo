@@ -20,7 +20,7 @@ class TaskViewModel (application: Application) : AndroidViewModel(application) {
     fun insertTask(task: Task)= viewModelScope.launch {
         repository.insertTask(task)
     }
-
+//método que elimina de la base de datos
     fun deleteALLTask() = viewModelScope.launch {
         repository.deleteALL()
     }

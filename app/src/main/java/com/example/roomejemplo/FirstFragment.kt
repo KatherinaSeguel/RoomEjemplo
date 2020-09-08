@@ -42,6 +42,8 @@ class FirstFragment : Fragment() {
         viewModel.insertTask(task1)
         viewModel.insertTask(task2)
 
+
+        viewModel.deleteALLTask()//elimina los elementos de a base de datos
         //escuchar el Live Data del viewModel
 //se autogenera
         viewModel.allTask.observe(viewLifecycleOwner, Observer {

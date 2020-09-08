@@ -24,7 +24,11 @@ class TaskAdapter (val dataList : List<Task>) : RecyclerView.Adapter<TaskAdapter
 
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val mTask: Task=dataList[position]  //rescata 1 objeto por posicion
+        holder.taskText.text=mTask.task
+        holder.checkTask.isChecked=mTask.completeTask
+        holder.idText.text=mTask.id.toString()
+
     }
 
     override fun getItemCount(): Int {

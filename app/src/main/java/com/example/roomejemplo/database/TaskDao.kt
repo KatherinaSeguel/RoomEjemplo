@@ -27,4 +27,7 @@ interface TaskDao {
     @Query("SELECT * FROM table_name WHERE id=:mid")//los : es para que sepa que es la variable
     fun getOneTaskByID(mid:Int): Task //yo le paso un id y la cuery me trae el Task u objeto que encuentre
 
+ @Query ("Delete FROM table_name")
+ suspend fun deleteALLTask()
+
 }

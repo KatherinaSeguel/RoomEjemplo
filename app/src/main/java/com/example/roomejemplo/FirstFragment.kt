@@ -42,14 +42,14 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // Inflate the layout for this fragment
 
-      //  val task=Task(0,"Algo de prueba",false)
-      //  val task1=Task(1,"Algo de prueba 1",false)
-    //    val task2=Task(2,"Algo de prueba 2",false)
+     /*  val task=Task(0,"Algo de prueba",false)
+       val task1=Task(1,"Algo de prueba 1",false)
+      val task2=Task(2,"Algo de prueba 2",false)
 
 
-    //   viewModel.insertTask(task) //ingresa BD
-      //  viewModel.insertTask(task1)
-      //  viewModel.insertTask(task2)
+     viewModel.insertTask(task) //ingresa BD
+      viewModel.insertTask(task1)
+      viewModel.insertTask(task2)*/
 
 
       //  viewModel.deleteALLTask()//elimina los elementos de a base de datos

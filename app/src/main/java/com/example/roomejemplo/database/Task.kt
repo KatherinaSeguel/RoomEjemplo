@@ -8,6 +8,6 @@ import androidx.room.PrimaryKey
 data class Task (
                  @PrimaryKey(autoGenerate = true)
                  @NonNull
-                 var id:Int,
+                 var id:Int=0,
                  val task:String,
                  val completeTask:Boolean)

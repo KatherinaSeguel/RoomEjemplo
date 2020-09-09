@@ -6,22 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editTexTask"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        android:layout_marginTop="243dp"
+        android:layout_marginBottom="243dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_second"
+        android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
+        android:layout_marginBottom="152dp"
+        android:text="Guardar y Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="44dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        app:layout_constraintStart_toStartOf="@+id/saveBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

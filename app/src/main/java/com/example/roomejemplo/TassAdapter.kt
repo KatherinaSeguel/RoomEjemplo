@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.roomejemplo.database.Task
 import kotlinx.android.synthetic.main.task_item_list.view.*
 
-class TaskAdapter () : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter (var passTheData:PassTheData) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
 
   private var dataList = emptyList<Task>()
+
+
 //función que actualiza el listado del adapter
     fun updateDataList(mDataList: List<Task>){
        dataList=mDataList
@@ -20,11 +22,19 @@ class TaskAdapter () : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
       }
 
 //ViewHolder
-    inner class  TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class  TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener
+{
         val taskText = itemView.taskTv
         val checkTask = itemView.checkBox
         val idText= itemView.idView
+
+    val itemView= itemView.setOnClickListener(this)
+    override fun onClick(p0: View?) {
+        //implementamos la interface para escuchar un elemento
+        //pasa el elemento encontrado por posicion del adaptador
+        passTheData.passTheData(dataList[adapterPosition])
     }
+}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.task_item_list,parent,false)
@@ -40,11 +50,14 @@ class TaskAdapter () : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     }
 
-    override fun getItemCount(): Int {
-        return dataList.size
+    override fun getItemCount()= dataList.size
+
+        interface PassTheData {
+            fun passTheData(mtask:Task)
+        }
+
     }
 
 
 
 
-}

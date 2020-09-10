@@ -16,7 +16,7 @@ interface TaskDao {
 
 
     @Update
-    fun updateOneTask(mtask: Task) // modificar
+    suspend fun updateOneTask(mtask: Task) // modificar
 
     @Delete
     fun deleteOneTask(mtask: Task)// eliminar
@@ -29,5 +29,7 @@ interface TaskDao {
 
  @Query ("Delete FROM table_name")
  suspend fun deleteALLTask()
+
+
 
 }

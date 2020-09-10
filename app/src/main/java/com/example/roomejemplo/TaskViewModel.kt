@@ -28,4 +28,8 @@ class TaskViewModel (application: Application) : AndroidViewModel(application) {
     fun getOneTaskByID(id:Int):LiveData<Task>{
        return repository.getOneTaskByID(id)
     }
+//hace el update
+    fun updateTask(mTask: Task)= viewModelScope.launch {
+        repository.updateTask(mTask)
+    }
 }

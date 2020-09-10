@@ -23,7 +23,6 @@ private var idTask:Int?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel= ViewModelProvider(this).get(TaskViewModel::class.java)
-
         arguments?.let {
             idTask = it.getInt("id")
             Log.d("OBJ",idTask.toString())
@@ -56,11 +55,18 @@ private var idTask:Int?=null
             val textTast = editTexTask.text.toString()
             val checkBox= checkBox.isChecked
 
-            if (!textTast.isEmpty()){  //si es que no está vacio
-             val mTask = Task(task= textTast, completeTask = checkBox)
+            if (textTast.isNotEmpty()) {  //si es que no está vacio
+            if (idTask != null) {
+                Log.d("OBJ_ID_TASK", idTask.toString())
+                val mTask = Task(task= textTast, completeTask = checkBox,id= idTask!!)
+                mViewModel.updateTask(mTask)
+
+            }else{
+
+                val mTask = Task(task = textTast, completeTask = checkBox)
                 mViewModel.insertTask(mTask)
+            }}
                 findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-            }
+            }}
              }
-}
-}
+

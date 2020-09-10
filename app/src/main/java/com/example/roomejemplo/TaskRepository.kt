@@ -24,5 +24,9 @@ class TaskRepository(private val mTaskDao:TaskDao) {
     fun getOneTaskByID(id : Int): LiveData<Task>{
        return  mTaskDao.getOneTaskByID(id)
     }
+//este realiza el update
+    suspend fun updateTask(mtask: Task){
+        mTaskDao.updateOneTask(mtask)
+    }
 
 }

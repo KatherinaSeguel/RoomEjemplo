@@ -1,6 +1,7 @@
 package com.example.roomejemplo
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,10 +17,16 @@ import kotlinx.android.synthetic.main.fragment_second.*
  */
 class SecondFragment : Fragment() {
 lateinit var  mViewModel: TaskViewModel
+private var idTask:Int?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel= ViewModelProvider(this).get(TaskViewModel::class.java)
+
+        arguments?.let {
+            idTask = it.getInt("id")
+            Log.d("OBJ",idTask.toString())
+        }
     }
 
     override fun onCreateView(

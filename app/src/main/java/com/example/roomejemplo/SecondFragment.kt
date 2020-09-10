@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.roomejemplo.database.Task
@@ -40,6 +41,15 @@ private var idTask:Int?=null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        idTask?.let {
+            mViewModel.getOneTaskByID(it).observe(viewLifecycleOwner, Observer {
+                Log.d("OBJ_LIVE",it.task)
+
+                editTexTask.setText(it.task)
+                checkBox.isChecked = it.completeTask
+
+            })
+        } //envolvio con la ampolleta roja y salió el let
 
         saveBtn.setOnClickListener {
 
